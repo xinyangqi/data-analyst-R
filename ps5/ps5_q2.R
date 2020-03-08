@@ -3,8 +3,8 @@
 # 
 # This script Cleans the data in GSE138311_series_matrix.txt
 # Then analyze the t-statistic of difference in means 
-# between samples correspond to individuals with Crohn¡¯s disease 
-# and which to non-Crohn¡¯s samples for each unique probe
+# between samples correspond to individuals with CrohnÂ¡Â¯s disease 
+# and which to non-CrohnÂ¡Â¯s samples for each unique probe
 # Finally, use permutation tests and t-statistics 
 # to calculate different p-value for difference 
 # and use parallelism to improve efficiency.
@@ -39,14 +39,14 @@ datab = melt(datab, id.vars = c('ID_REF'), variable.name = 'sample',
 
 # (c)
 # Add a column sample_group to determine which 
-# samples correspond to individuals with Crohn¡¯s disease 
-# and which to non-Crohn¡¯s samples
+# samples correspond to individuals with CrohnÂ¡Â¯s disease 
+# and which to non-CrohnÂ¡Â¯s samples
 Crohn = c('GSM4105187','GSM4105188','GSM4105189','GSM4105190',
           'GSM4105191','GSM4105192','GSM4105193')
 datab1=copy(datab)
 
-# When sample_group = 1, the sample correspond to individuals with Crohn¡¯s disease,
-# When sample_group = 0, the sample correspond to individuals with non-Crohn¡¯s disease
+# When sample_group = 1, the sample correspond to individuals with CrohnÂ¡Â¯s disease,
+# When sample_group = 0, the sample correspond to individuals with non-CrohnÂ¡Â¯s disease
 datac = datab1[,sample_group := 1L*(sample %in% Crohn)]
 
 # (d)
